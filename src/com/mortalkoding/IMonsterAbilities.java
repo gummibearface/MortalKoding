@@ -9,3 +9,5 @@ public interface IMonsterAbilities {
 	public final double ResourceDisAdvantageMultiplier = 1.5; // uses 1.5 times as much
 	
 }
+
+//nothing

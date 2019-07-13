@@ -1,26 +1,22 @@
 package com.mortalkoding;
-import java.util.Arrays;
-import java.util.Collection;
 
 import com.mortalkoding.enums.TerrainType;
 import com.mortalkoding.model.ResourceBundle;
 
-public abstract class Field {
+public class Field {
 	
 	protected String fieldName;	// give it a name!
 	protected TerrainType terrainType; // some kind of variance in lava, ocean, rocky, lightning, something...
 	protected ResourceBundle resourceBundle; // list of the available resources of each type
 	// maybe have the list of resources be read in from an XML document?
 	// maybe have each different field be a different XML doc?
+
 	
-	protected Collection<AbstractMonsterFactory> monsterFactories;
 	
-	
-	public Field(String name, TerrainType terrain, ResourceBundle resources, AbstractMonsterFactory... factories) {
+	public Field(String name, TerrainType terrain, ResourceBundle resources) {
 		this.fieldName = name;
 		this.terrainType = terrain;
 		this.resourceBundle = resources;
-		Arrays.asList(factories).stream().forEach(factory -> monsterFactories.add(factory));;
 	}
 
 

@@ -1,26 +1,22 @@
 package com.mortalkoding.services;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-// Service should be used to connect to a general DB then
-// have an adapter that uses the one DB specifically
+import java.sql.*;
 
 public class DatabaseService {
 
-    private String databasePath = "";
+    private String _databasePath;
 
-    private Connection connect() {
+    public Connection connect() {
         Connection conn = null;
 
         try {
             // db parameters
-            String url = "jdbc:sqlite:" + databasePath;
+            String url = "jdbc:sqlite:" + _databasePath;
             // create a connection to the database
             conn = DriverManager.getConnection(url);
+            conn.setAutoCommit(false);
 
-            System.out.println("Connection to SQLite has been established.");
+            System.out.println("Connected to the database.");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -29,20 +25,8 @@ public class DatabaseService {
         return conn;
     }// end connect
 
-    public void simpleInsert(String tableName, String columnName, String valueName){
-        String sql = "INSERT INTO " + tableName +
-                "(" + columnName + ") " +
-                "VALUES (" + valueName + ");";
-
-        try {
-            Connection conn = this.connect();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    } // end simpleInsert
-
     public DatabaseService(String dbPath){
-        dbPath = databasePath;
+        _databasePath = dbPath;
     }
 
 }

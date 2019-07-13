@@ -1,16 +1,11 @@
 package com.mortalkoding.adapters;
 
 import com.mortalkoding.services.DatabaseService;
-import com.mortalkoding.model.sqlString;
-
-import java.rmi.activation.ActivationGroup_Stub;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.*;
 
 public class MKDBAdapter {
 
-    //DatabaseService MKDBService = new DatabaseService("com.mortalkoding/data/db_MortalKoding.db");
+    // private DatabaseService MKDBService = new DatabaseService("com.mortalkoding/data/db_MortalKoding.db");
 
     private static DatabaseService MKDBService = new DatabaseService("src/com/mortalkoding/data/db_MortalKoding.db");
 
@@ -34,7 +29,7 @@ public class MKDBAdapter {
     }
 
     public static void main (String args[]){
-        insertTest("can't");
+        insertTest("new't");
     }
 
 

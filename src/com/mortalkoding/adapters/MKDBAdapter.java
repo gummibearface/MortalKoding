@@ -2,6 +2,7 @@ package com.mortalkoding.adapters;
 
 import com.mortalkoding.services.DatabaseService;
 import java.sql.*;
+import java.util.List;
 
 public class MKDBAdapter {
 
@@ -10,11 +11,14 @@ public class MKDBAdapter {
     private static DatabaseService MKDBService = new DatabaseService("src/com/mortalkoding/data/db_MortalKoding.db");
 
     public static void insertTest(String words){
-        Connection conn = null;
         try {
-            conn = MKDBService.connect();
-
-            PreparedStatement prep = conn.prepareStatement("INSERT INTO test(Words) VALUES(?);");
+            Connection conn = MKDBService.connect();
+            String sql =
+                    "INSERT INTO " +
+                        "test(Words) " +
+                    "VALUES" +
+                        "(?);";
+            PreparedStatement prep = conn.prepareStatement(sql);
 
             prep.setString(1,words);
             prep.executeUpdate();
@@ -26,11 +30,34 @@ public class MKDBAdapter {
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+    } // end insertTest
+
+    public static List selectTest(){
+        String sql = "SELECT ID, TimeStamp, Words FROM test";
+        try (
+            Connection conn = MKDBService.connect();
+            Statement st = conn.createStatement();
+            ResultSet results = st.executeQuery(sql)){
+
+            List list = MKDBService.resultsToArray(results);
+
+            return list;
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return null;
     }
 
     public static void main (String args[]){
-        insertTest("new't");
+        try {
+            List list = selectTest();
+
+            list.forEach(item->System.out.println(item));
+
+        }
+        catch (Exception e){
+            System.out.println(e.getMessage());
+        }
     }
-
-
 }

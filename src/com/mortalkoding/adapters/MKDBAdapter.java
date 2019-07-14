@@ -8,9 +8,9 @@ public class MKDBAdapter {
 
     // private DatabaseService MKDBService = new DatabaseService("com.mortalkoding/data/db_MortalKoding.db");
 
-    private static DatabaseService MKDBService = new DatabaseService("src/com/mortalkoding/data/db_MortalKoding.db");
+    protected DatabaseService MKDBService = new DatabaseService("src/com/mortalkoding/data/db_MortalKoding.db");
 
-    public static void insertTest(String words){
+    private void insertTest(String words){
         try {
             Connection conn = MKDBService.connect();
             String sql =
@@ -32,12 +32,11 @@ public class MKDBAdapter {
         }
     } // end insertTest
 
-    public static List selectTest(){
-        String sql = "SELECT ID, TimeStamp, Words FROM test";
-        try (
+    private List select(String sql){
+        try {
             Connection conn = MKDBService.connect();
             Statement st = conn.createStatement();
-            ResultSet results = st.executeQuery(sql)){
+            ResultSet results = st.executeQuery(sql);
 
             List list = MKDBService.resultsToArray(results);
 
@@ -48,16 +47,16 @@ public class MKDBAdapter {
         }
         return null;
     }
-
-    public static void main (String args[]){
-        try {
-            List list = selectTest();
-
-            list.forEach(item->System.out.println(item));
-
-        }
-        catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-    }
+//
+//    public static void main (String args[]){
+//        try {
+//            List list = selectTest();
+//
+//            list.forEach(item->System.out.println(item));
+//
+//        }
+//        catch (Exception e){
+//            System.out.println(e.getMessage());
+//        }
+//    }
 }

@@ -2,35 +2,24 @@ package com.mortalkoding.adapters;
 
 import com.mortalkoding.services.DatabaseService;
 import com.mortalkoding.data.GLOBAL_CONSTANTS;
+import com.mortalkoding.data.SQL_Common;
 
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.sql.*;
 
 abstract class MKDBAdapter {
 
-    protected DatabaseService MKDBService = new DatabaseService(GLOBAL_CONSTANTS.DATABASE_LOCATION);
+    private final DatabaseService MKDBService =
+            new DatabaseService(GLOBAL_CONSTANTS.DATABASE_LOCATION);
 
-    protected List resultsToArray (ResultSet results) throws SQLException {
-        ResultSetMetaData md = results.getMetaData();
+    protected final SQL_Common SQL = new SQL_Common(getConnection());
 
-        int columns = md.getColumnCount();
-        ArrayList list = new ArrayList();
-        while (results.next()){
-            HashMap row = new HashMap(columns);
-            for (int i = 1; i <= columns; ++i){
-                row.put(md.getColumnName(i), results.getObject(i));
-            }
-            list.add(row);
+    protected Connection getConnection(){
+        try {
+            return MKDBService.SQLiteConnection();
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
         }
-        return list;
-    }
-
-    protected MKDBAdapter(){
-
     }
 
 //    private void insertTest(String words){

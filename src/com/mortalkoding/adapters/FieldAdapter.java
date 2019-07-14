@@ -3,6 +3,7 @@ package com.mortalkoding.adapters;
 import java.sql.*;
 import java.util.List;
 
+// Schema
 // CREATE TABLE IF NOT EXISTS 'Field'
 // (
 // 'ID' INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -12,6 +13,10 @@ import java.util.List;
 
 public class FieldAdapter extends MKDBAdapter {
 
+    public FieldAdapter(){
+        super();
+    }
+
     public List selectAll(){
         String sql = "SELECT ID, Name, Type FROM Field";
         try {
@@ -20,7 +25,7 @@ public class FieldAdapter extends MKDBAdapter {
             Statement st = conn.createStatement();
             ResultSet results = st.executeQuery(sql);
 
-            List list = MKDBService.resultsToArray(results);
+            List list = resultsToArray(results);
 
             return list;
 

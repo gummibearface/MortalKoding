@@ -17,7 +17,7 @@ public class FieldAdapter extends MKDBAdapter{
 
 // This will connect to the "Field" table
 
-    public List selectAll(){
-        return SQL.selectAll("Field");
+    public FieldAdapter(){
+        super("Field");
     }
 }

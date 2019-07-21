@@ -24,6 +24,10 @@ public class SQL_Common {
         return list;
     }
 
+    public int EXEC(){
+        return 9;
+    }
+
     public List selectAll(String tableName){
         String sql = String.format("SELECT * FROM %s",tableName);
         try {
@@ -32,6 +36,7 @@ public class SQL_Common {
             ResultSet rs = st.executeQuery(sql);
             List rl = resultsToArray(rs);
 
+            rs.close();
             st.close();
             conn.close();
             return rl;
@@ -41,6 +46,8 @@ public class SQL_Common {
         }
         return null;
     }
+
+    //public int simpleInsert()
 
     public SQL_Common (Connection connection){
         _localConnection = connection;

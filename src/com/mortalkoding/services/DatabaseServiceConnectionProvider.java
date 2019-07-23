@@ -2,7 +2,7 @@ package com.mortalkoding.services;
 
 import java.sql.*;
 
-public class DatabaseService {
+public class DatabaseServiceConnectionProvider {
 
     private String _databasePath;
 
@@ -12,11 +12,13 @@ public class DatabaseService {
         try {
             // db parameters
             String url = "jdbc:sqlite:" + _databasePath;
-            System.out.println("URL: " + url);
+            // System.out.println("URL: " + url);
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             conn.setAutoCommit(false);
-            System.out.println("Connected to  DB.");
+            System.out.println(
+                    String.format(
+                            "SQLite connection established on %s.", _databasePath));
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -29,7 +31,7 @@ public class DatabaseService {
 //        // Write code here to return a 'MySQL' Connection
 //    }
 
-    public DatabaseService(String dbPath){
+    public DatabaseServiceConnectionProvider(String dbPath){
         _databasePath = dbPath;
     }
 

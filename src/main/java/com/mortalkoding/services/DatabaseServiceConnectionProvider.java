@@ -12,7 +12,7 @@ public class DatabaseServiceConnectionProvider {
         try {
             // db parameters
             String url = "jdbc:sqlite:" + _databasePath;
-            // System.out.println("URL: " + url);
+            System.out.println("URL: " + url);
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             conn.setAutoCommit(false);

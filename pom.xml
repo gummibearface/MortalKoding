@@ -8,7 +8,6 @@
     <artifactId>MortalKoding</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-
     <dependencies>
         <dependency>
             <groupId>javax.xml.bind</groupId>

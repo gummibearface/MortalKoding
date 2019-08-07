@@ -5,6 +5,13 @@ import com.mortalkoding.exception.ResourceAllocationException;
 import com.mortalkoding.model.ResourceBundle;
 
 public abstract class AbstractMonster {
+	//    ===    FIELDS   ===     //
+	//Strength//ENUM VALUES
+	//Weakness--One of both or neither
+	//HP
+	//name
+	//attack
+	//Resource Bundle
 	
 	protected final TerrainType strength;
 	protected final TerrainType weakness;
@@ -53,24 +60,18 @@ public abstract class AbstractMonster {
 		}
 		return isDead;
 	}
-	
+
+	//METHODs
+	//return int Attack(FieldType passed in to know about advantage/disadvantage)
+	//Monster decay TODO
+	//return boolean isDead TakeDamage(int damageTaken, FieldType)
+
 	abstract int normalAttack();
 	
 	abstract int advantagedAttack();
 	
 	
 	
-	//FIELDS
-	//Strength//ENUM VALUES
-	//Weakness--One of both or neither
-	//HP
-	//name
-	//attack
-	//Resource Bundle
-	
-	//METHODs
-	//return int Attack(FieldType passed in to know about advantage/disadvantage)
-	//Monster decay TODO
-	//return boolean isDead TakeDamage(int damageTaken, FieldType)
-	
+
+
 }

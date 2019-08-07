@@ -16,9 +16,7 @@ public class DatabaseServiceConnectionProvider {
             // create a connection to the database
             conn = DriverManager.getConnection(url);
             conn.setAutoCommit(false);
-            System.out.println(
-                    String.format(
-                            "SQLite connection established on %s.", _databasePath));
+            System.out.println(String.format("SQLite connection established on %s.", _databasePath));
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -28,7 +26,7 @@ public class DatabaseServiceConnectionProvider {
     }// end SQLiteConnection
 
 //    public Connection MySQLConnection(){
-//        // Write code here to return a 'MySQL' Connection
+//        // TODO Write code here to return a 'MySQL' Connection
 //    }
 
     public DatabaseServiceConnectionProvider(String dbPath){

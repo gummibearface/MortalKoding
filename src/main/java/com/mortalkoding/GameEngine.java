@@ -1,10 +1,10 @@
 package com.mortalkoding;
 
-import java.util.ArrayList;
-import java.util.Collection;
-
 import com.mortalkoding.enums.TerrainType;
 import com.mortalkoding.model.ResourceBundle;
+
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class GameEngine {
 
@@ -15,6 +15,7 @@ public class GameEngine {
 	public static void main(String[] args) {
 	Collection<AbstractMonsterFactory> monsterFactories = new ArrayList<>();
 		Field field = new Field("Stadium", TerrainType.DESERT, new ResourceBundle());
+		//  ^  Maybe we can make this a random generator?
 		AbstractMonsterFactory factory = new GolemMonsterFactory(field);
 		monsterFactories.add(factory);
 		

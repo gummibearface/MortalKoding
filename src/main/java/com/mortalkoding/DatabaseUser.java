@@ -20,7 +20,5 @@ public class DatabaseUser {
         for (Object element : la ) {
             System.out.println(element.toString());
         }
-
     }
-
 }

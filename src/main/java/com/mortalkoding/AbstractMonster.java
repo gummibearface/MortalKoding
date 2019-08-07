@@ -13,16 +13,16 @@ public abstract class AbstractMonster {
 	//attack
 	//Resource Bundle
 	
-	protected final TerrainType strength;
-	protected final TerrainType weakness;
+	protected final TerrainType strengthTerrain;
+	protected final TerrainType weaknessTerrain;
 	protected final String name;
 	protected Integer currentHitPoints;
 	protected ResourceBundle resourcesRequired;
 	
 	public AbstractMonster(String name, TerrainType strength, TerrainType weakness,
 		Integer initialHitpoints, ResourceBundle resourceBundle) throws ResourceAllocationException	{
-		this.strength = strength;
-		this.weakness = weakness;
+		this.strengthTerrain = strength;
+		this.weaknessTerrain = weakness;
 		this.currentHitPoints = initialHitpoints;
 		this.resourcesRequired = resourceBundle;
 		this.name = name;
@@ -31,9 +31,8 @@ public abstract class AbstractMonster {
 		}
 	}
 	
-	
 	public final int attack(TerrainType fieldTerrain) {
-		if(fieldTerrain.equals(strength)) {
+		if(fieldTerrain.equals(strengthTerrain)) {
 			return advantagedAttack();
 		}
 		else {
@@ -49,7 +48,7 @@ public abstract class AbstractMonster {
 	 * @return true iff monster is dead
 	 */
 	public final boolean takeDamage(Integer damageAmount, TerrainType fieldTerrain) {
-		if(fieldTerrain.equals(weakness))
+		if(fieldTerrain.equals(weaknessTerrain))
 		{
 			damageAmount *= 2;
 		}

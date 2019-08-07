@@ -12,9 +12,6 @@ public class Golem extends AbstractMonster {
 	}
 
 
-
-
-
 	int normalAttack() {
 		return 5;
 	}

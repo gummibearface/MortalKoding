@@ -14,6 +14,7 @@ public class DatabaseServiceConnectionProvider {
             String url = "jdbc:sqlite:" + _databasePath;
             // System.out.println("URL: " + url);
             // create a connection to the database
+
             conn = DriverManager.getConnection(url);
             conn.setAutoCommit(false);
             System.out.println(String.format("SQLite connection established on %s.", _databasePath));

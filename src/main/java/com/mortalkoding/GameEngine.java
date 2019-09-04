@@ -36,7 +36,6 @@ public class GameEngine {
 				bob.takeAttacks(attackValues);
 			}
 			attackValues = bob.initiateAttackPhase();
-			//TODO: Apply attack values to different factory
 		}
 		
 	}

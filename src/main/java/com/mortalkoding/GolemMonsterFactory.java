@@ -15,7 +15,7 @@ public class GolemMonsterFactory extends AbstractMonsterFactory {
 		try {
 			golem = new Golem();
 		} catch (ResourceAllocationException e) {
-			System.out.println("Not enough resources");
+			System.out.println("Monster being produced doesn't require enough resources. Cheater");
 		}
 		
 		return golem;

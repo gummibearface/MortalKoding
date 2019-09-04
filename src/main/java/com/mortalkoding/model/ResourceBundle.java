@@ -29,4 +29,13 @@ public class ResourceBundle {
 		//resourceAllocation.values().stream().mapToInt(Integer::intValue).sum();
 		return resourceAllocation.values().stream().reduce(0, Integer::sum);
 	}
+	
+	public static ResourceBundle getDefaultResourceBundle()
+	{
+		ResourceBundle resourceBundle = new ResourceBundle();
+		resourceBundle.addResourceCount(ResourceType.ADAMANTIUM, 50);
+		resourceBundle.addResourceCount(ResourceType.CONCRETE, 50);
+		resourceBundle.addResourceCount(ResourceType.URANIUM, 50);
+		return resourceBundle;
+	}
 }

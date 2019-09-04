@@ -16,7 +16,14 @@ public class Field {
 	public Field(String name, TerrainType terrain, ResourceBundle resources) {
 		this.fieldName = name;
 		this.terrainType = terrain;
-		this.resourceBundle = resources;
+		if (resources.getTotalNumberOfResources() < 150)
+		{
+			System.out.println("Resources allocated for field are too low (< 150), using Default Resources");
+			this.resourceBundle = ResourceBundle.getDefaultResourceBundle();
+		} else
+		{
+			this.resourceBundle = resources;
+		}
 	}
 
 
@@ -24,7 +31,7 @@ public class Field {
 	//to remove them if possible. 
 	public boolean consumeResourceBundle(ResourceBundle resourcesRequired) {
 		
-		return false;
+		return true;
 	}
 	
 	

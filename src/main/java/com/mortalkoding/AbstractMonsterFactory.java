@@ -19,11 +19,15 @@ public abstract class AbstractMonsterFactory {
 	
 	public final void initiateConsumePhase()
 	{
+		System.out.println("Initiating consume phase for Factory type: " + this.getClass().getCanonicalName());
 		ResourceBundle resourcesRequired = consumeResources();
 		
 		if (field.consumeResourceBundle(resourcesRequired))
 		{
 			monsters.add(produceMonster());
+		} else
+		{
+			System.out.println("Field doesn't have necessary resources to produce monster for Factory: " + this.getClass().getCanonicalName());
 		}
 		
 	}

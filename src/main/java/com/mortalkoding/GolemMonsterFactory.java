@@ -10,13 +10,8 @@ public class GolemMonsterFactory extends AbstractMonsterFactory {
 	}
 
 	@Override
-	protected AbstractMonster produceMonster() {
-		AbstractMonster golem = null;
-		try {
-			golem = new Golem();
-		} catch (ResourceAllocationException e) {
-			System.out.println("Monster being produced doesn't require enough resources. Cheater");
-		}
+	protected AbstractMonster produceMonster() throws ResourceAllocationException {
+		AbstractMonster golem = new Golem();
 		
 		return golem;
 	}

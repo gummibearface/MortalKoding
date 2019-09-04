@@ -1,5 +1,6 @@
 package com.mortalkoding;
 
+import com.mortalkoding.enums.ResourceType;
 import com.mortalkoding.enums.TerrainType;
 import com.mortalkoding.exception.ResourceAllocationException;
 import com.mortalkoding.model.ResourceBundle;
@@ -68,8 +69,6 @@ public abstract class AbstractMonster {
 	abstract int normalAttack();
 	
 	abstract int advantagedAttack();
-	
-	
 	
 
 

@@ -12,13 +12,12 @@ public class GolemMonsterFactory extends AbstractMonsterFactory {
 	@Override
 	protected AbstractMonster produceMonster() throws ResourceAllocationException {
 		AbstractMonster golem = new Golem();
-		
 		return golem;
 	}
 
 	@Override
 	protected ResourceBundle consumeResources() {
-		return null;
+		return Golem.getRequiredResources();
 	}
 
 }

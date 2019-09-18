@@ -30,6 +30,11 @@ public class ResourceBundle {
 		return resourceAllocation.values().stream().reduce(0, Integer::sum);
 	}
 	
+	public int getNumberOfResourcesForType(ResourceType resourceType)
+	{
+		return resourceAllocation.getOrDefault(resourceType, 0);
+	}
+	
 	public static ResourceBundle getDefaultResourceBundle()
 	{
 		ResourceBundle resourceBundle = new ResourceBundle();

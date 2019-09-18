@@ -25,6 +25,7 @@ public abstract class AbstractMonsterFactory {
 
 		if (field.consumeResourceBundle(resourcesRequired)) {
 			try {
+				System.out.println("Consuming resources to produce monster for Factory type: " + this.getClass().getCanonicalName());
 				AbstractMonster monster = produceMonster();
 				monsters.add(monster);
 			} catch (ResourceAllocationException e) {
